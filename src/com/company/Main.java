@@ -1,10 +1,10 @@
 package com.company;
 
-import java.util.concurrent.TimeUnit;
+import java.text.DecimalFormat;
 
 public class Main {
 
-    final static long MINUTE = 60000l;
+    final static double MINUTE = 60000d;
 
 
     public static void main(String[] args) {
@@ -29,18 +29,24 @@ public class Main {
         long currentTime = System.currentTimeMillis();
         System.out.println(" текущее:  " + currentTime );
 
-        long elapsedTime = System.currentTimeMillis() - startTime;
+        double elapsedTime = System.currentTimeMillis() - startTime;
         System.out.println(" прошло :  "  +  elapsedTime  + " миллисекунд");
+       // System.out.println(" прошло :  "  + (( new DecimalFormat("#0.0000000000").format(elapsedTime)/1000)/60 ) + " секунд");
+
+        DecimalFormat fourDigits = new DecimalFormat("#0.000000000000000000");
+
+        System.out.println(" прошло " +fourDigits.format(elapsedTime/1000/60) + " секунд");
+        System.out.println(" прошло " +String.format("%.06f", elapsedTime/1000/60) + " секунд");
 
         if (elapsedTime >= MINUTE) {
             System.out.println(" Минута! Дальнейшее вычисление неприемлемо");
         } else {
-            System.out.println(" До истечения минуты осталось:   " + (MINUTE - elapsedTime) + " миллисекунд" + " или примерно " + TimeUnit.MILLISECONDS.toSeconds((MINUTE - elapsedTime))+ " секунд(ы)");
+            System.out.println(" До истечения минуты осталось:   " + (MINUTE - elapsedTime) + " миллисекунд" + " ");
         }
 
     }
 
-    public static void calcFibonacci(String[] args){
+    public static void calcFibonacci(String[] args) {
         long n_first = 0;
         long n_second = 1;
 
