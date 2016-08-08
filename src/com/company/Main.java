@@ -18,23 +18,20 @@ public class Main {
          *
          */
         long startTime = System.currentTimeMillis();
-
-
-
         System.out.println("Началось в " + startTime);
-
 
         calcFibonacci(args);
 
         long currentTime = System.currentTimeMillis();
+
         System.out.println(" текущее:  " + currentTime );
 
         double elapsedTime = System.currentTimeMillis() - startTime;
+
         System.out.println(" прошло :  "  +  elapsedTime  + " миллисекунд");
        // System.out.println(" прошло :  "  + (( new DecimalFormat("#0.0000000000").format(elapsedTime)/1000)/60 ) + " секунд");
 
         DecimalFormat fourDigits = new DecimalFormat("#0.000000000000000000");
-
         System.out.println(" прошло " +fourDigits.format(elapsedTime/1000/60) + " секунд");
         System.out.println(" прошло " +String.format("%.06f", elapsedTime/1000/60) + " секунд");
 
@@ -56,12 +53,12 @@ public class Main {
        // while (true) { //< Long.MAX_VALUE 9223372036854775807
             n_second +=  n_first;
 
-           if (n_second >= Long.MAX_VALUE | n_second < 0) break  ;
+                if (n_second >= Long.MAX_VALUE | n_second < 0) break  ;
 
             n_first = n_second - n_first;
-
             System.out.print(" " + n_second + "  \n");
         }
+
         System.out.println();
 
     }
